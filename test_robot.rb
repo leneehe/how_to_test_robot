@@ -29,39 +29,45 @@ class TestRobot < MiniTest::Test
   end
 
   def test_that_standard_robot_needing_repairs_sent_to_station_3
-    skip
     # arrange
-
+    robo = Robot.new
+    robo.needs_repairs
     # act
-
+    expected = 3
+    actual = robo.station
     # assert
+    assert(expected, actual)
   end
 
   def test_that_robot_in_good_condition_sent_to_station_4
-    skip
     # arrange
-
+    robo = Robot.new
     # act
-
+    expected = 4
+    actual = robo.station
     # assert
+    assert(expected, actual)
   end
 
   def test_prioritize_tasks_with_empty_todo_list_returns_negative_one
-    skip
     # arrange
-
+    robo = Robot.new
     # act
-
+    expected = -1
+    actual = robo.prioritize_tasks
     # assert
+    assert(expected, actual)
   end
 
   def test_prioritize_tasks_with_todos_returns_max_todo_value
-    skip
     # arrange
-
+    robo = Robot.new
+    robo.todos = [3, 99, 2, 9, 7]
     # act
-
+    expected = 99
+    actual = robo.prioritize_tasks
     # assert
+    assert(expected, actual)
   end
 
   def test_workday_on_day_off_returns_false
