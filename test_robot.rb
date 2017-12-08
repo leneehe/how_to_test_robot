@@ -5,12 +5,15 @@ require './robot.rb'
 class TestRobot < MiniTest::Test
 
   def test_that_foreign_robot_needing_repairs_sent_to_station_1
-    skip
     # arrange
-
+    robo = Robot.new
+    robo.needs_repairs = true
+    robo.foreign_model = true
     # act
-
+    expected = 1
+    actual = robo.station
     # assert
+    assert(expected, actual)
   end
 
   def test_that_vintage_robot_needing_repairs_sent_to_station_2
